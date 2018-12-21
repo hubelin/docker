@@ -7,6 +7,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
+      # Allows for seeing changes after reload
       - /app/node_modules
       - .:/app
   tests:

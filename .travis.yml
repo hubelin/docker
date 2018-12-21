@@ -1,0 +1,14 @@
+# Docker requires super-user permissions
+sudo: required
+
+# tells Travis CI to install docker
+services:
+  - docker
+
+# Build our docker image before test runs
+before_install:
+  - docker build -t hubelin/docker -f Dockerfile.dev .
+
+# Commands run when tests need to be executed
+script:
+  - docker run hubelin/docker npm run test -- --coverage
