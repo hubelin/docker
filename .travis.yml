@@ -17,7 +17,7 @@ deploy:
   provider: elasticbeanstalk
   region: 'us-east-2'
   app: 'hello-world'
-  env: 'Docker-env'
+  env: 'HelloWorld-env'
   bucket_name: 'elasticbeanstalk-us-east-2-862489203195'
   bucket_path: 'hello-world'
   on:
