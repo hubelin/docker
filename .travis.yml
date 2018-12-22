@@ -12,3 +12,16 @@ before_install:
 # Commands run when tests need to be executed
 script:
   - docker run hubelin/docker npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'hello-world'
+  env: 'Docker-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-862489203195'
+  bucket_path: 'hello-world'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: 'AWS_SECRET_KEY'
